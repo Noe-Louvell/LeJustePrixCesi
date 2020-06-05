@@ -26,7 +26,7 @@ def index():
     params = {
             "ApiKey": ApiKey,
             "SearchRequest": {
-                "Keyword": "bouteille",
+                "Keyword": "sac",
                 "Pagination": {
                     "ItemsPerPage": randNumb,
                     "PageNumber": 1
