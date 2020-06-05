@@ -1,21 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8 content="width=device-width, initial-scale=1.0">
     <title>Le Juste Prix Cesi</title>
 </head>
 <body>
 <h1>
-    Juste Pirx ! <br>
+    Juste Pirx ! <br> <img src="{{IMAGE}}"><br>
     Nom  : {{NAME}} <br>
     Prix  : {{PRICE}} <br>
 </h1>
-<form  method="post">
-    <div>
-        <label for="userNumber">Votre prix :</label>
-        <input type="number" id="userNumber" name="user_number">
-    </div>
 
-</form>
+{%if USERPRICE == PRICE %}
+    <p>Vous remportez le gros lot ! <br>
+    </p>
+
+    <form action="/" method="get">
+        <input type="submit" value="reTry"/>
+    </form>
+{%else%}
+        <form action="/" method="post">
+            <p>Essaie de trouver le prix</p>
+            <input type="number" name="priceForm" id="priceForm"/>
+            <input type="submit" id="envoyer"/>
+
+        </form>
+    {%if USERPRICE != -1 %}
+
+            {%if PRICE < USERPRICE%}
+            <p>Le prix est trop grand</p>
+        {%else%}
+            <p>Le prix est trop petit</p>
+
+        {%endif%}
+    {%endif%}
+{%endif%}
+
 </body>
 </html>
