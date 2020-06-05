@@ -12,8 +12,8 @@ app = Flask(__name__, template_folder="templates")
 def index():
     # Declaration of variables
     attempt = []
-    some_keywords = ["brosse", "tv", "toiles", "boisson", "smartphone", "clavier"]
-    random_keyword = some_keywords[random.randint(0, len(some_keywords) - 1)]
+    keywords = ["brosse", "tv", "toiles", "boisson", "smartphone", "clavier"]
+    random_keyword = keywords[random.randint(0, len(keywords) - 1)]
     begin = None
     end = 40
     userPrice = -20
