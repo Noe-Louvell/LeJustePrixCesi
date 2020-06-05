@@ -12,10 +12,13 @@ app = Flask(__name__, template_folder="templates")
 def index():
     # Declaration of variables
     attempt = []
+    some_keywords = ["brosse", "tv", "toiles", "boisson", "smartphone", "clavier"]
+    random_keyword = some_keywords[random.randint(0, len(some_keywords) - 1)]
     begin = None
     end = 40
     userPrice = -20
     randNumb = random.randint(1, 20)
+
     # Data recovery from flask
     if request.method == "POST":
         randNumb = int(request.form["randNumb"])
@@ -28,7 +31,7 @@ def index():
     params = {
         "ApiKey": ApiKey,
         "SearchRequest": {
-            "Keyword": "toiles",
+            "Keyword": random_keyword,
             "Pagination": {
                 "ItemsPerPage": randNumb,
                 "PageNumber": 1
