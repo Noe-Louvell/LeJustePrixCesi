@@ -14,15 +14,16 @@
 {%if USERPRICE == PRICE %}
     <p>You win the jackpot ! <br>
     </p>
-
     <form action="/" method="get">
-        <input type="submit" value="reTry"/>
+        <input type="submit" value="Try again"/>
     </form>
 {%else%}
         <form action="/" method="post">
             <p>Try to find the price !</p>
+            <input type="hidden" name="randNumb" value="{{RANDNUMB}}"/>
             <input type="number" name="priceForm" id="priceForm"/>
-            <input type="submit" id="send"/>
+            <input type="hidden" name="attempt" value="{{ATTEMPT}}"/>
+            <input type="submit" id="envoyer" value="Send"/>
 
         </form>
     {%if USERPRICE != -20 %}
@@ -34,6 +35,17 @@
 
         {%endif%}
     {%endif%}
+
+    {%if USERPRICE != -20 %}
+    <h2>Previous attempts :</h2>
+    <ul>
+    {%for currentvalue in ATTEMPT %}
+        <p>{{currentvalue}}</p>
+    {%endfor%}
+    </ul>
+
+{%endif%}
+
 {%endif%}
 
 </body>
