@@ -9,7 +9,7 @@ app = Flask(__name__, template_folder="templates")
 
 @app.route("/", methods=['POST', 'GET'])
 def index():
-    userPrice = -1
+    userPrice = -20
     randNumbObject = random.randint(1, 20)
 
     if request.method == "POST":
@@ -20,7 +20,7 @@ def index():
     params = {
             "ApiKey": ApiKey,
             "SearchRequest": {
-                "Keyword": "phone",
+                "Keyword": "bouteille",
                 "Pagination": {
                     "ItemsPerPage": randNumbObject,
                     "PageNumber": 1
@@ -37,7 +37,7 @@ def index():
         }
     r = requests.post(url, data=json.dumps(params))
     name = (r.json()['Products'][0]['Name'])
-    price = (r.json()['Products'][0]['BestOffer']['SalePrice'])
+    price =int(float(r.json()['Products'][0]['BestOffer']['SalePrice']))
     image = (r.json()['Products'][0]['MainImageUrl'])
 
     return render_template("main.html", NAME=name, PRICE=price, IMAGE=image, USERPRICE=userPrice)

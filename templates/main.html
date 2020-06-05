@@ -2,17 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8 content="width=device-width, initial-scale=1.0">
-    <title>Le Juste Prix Cesi</title>
+    <title> Cesi Right price !</title>
 </head>
 <body>
 <h1>
-    Juste Pirx ! <br> <img src="{{IMAGE}}"><br>
-    Nom  : {{NAME}} <br>
-    Prix  : {{PRICE}} <br>
+    Right price ! <br> <img src="{{IMAGE}}"><br>
+    Product Name : {{NAME}} <br>
+    Price  : {{PRICE}} <br>
 </h1>
 
 {%if USERPRICE == PRICE %}
-    <p>Vous remportez le gros lot ! <br>
+    <p>You win the jackpot ! <br>
     </p>
 
     <form action="/" method="get">
@@ -20,17 +20,17 @@
     </form>
 {%else%}
         <form action="/" method="post">
-            <p>Essaie de trouver le prix</p>
+            <p>Try to find the price !</p>
             <input type="number" name="priceForm" id="priceForm"/>
-            <input type="submit" id="envoyer"/>
+            <input type="submit" id="send"/>
 
         </form>
-    {%if USERPRICE != -1 %}
+    {%if USERPRICE != -20 %}
 
             {%if PRICE < USERPRICE%}
-            <p>Le prix est trop grand</p>
+            <p>The price is too big</p>
         {%else%}
-            <p>Le prix est trop petit</p>
+            <p>The price is too small</p>
 
         {%endif%}
     {%endif%}
