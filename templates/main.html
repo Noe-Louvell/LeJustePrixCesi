@@ -1,18 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8 content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8 content=" content="width=device-width, initial-scale=1">
+     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title> Cesi Right price !</title>
 </head>
-<body>
+<body style="margin-left: 10px">
+
 <h1>
-    Right price ! <br> <img src="{{IMAGE}}"><br>
-    Product Name : {{NAME}} <br>
-
+    Can you find the Right price ? <br> <img src="{{IMAGE}}"><br><br>
 </h1>
-
+<h4>
+    Product Name : {{NAME}} <br>
+</h4>
 {%if USERPRICE == PRICE %}
-    <p>You win the jackpot ! <br>
+    <p>You have win  {{NAME}}  <br>
+    who had a price of {{ PRICE }} EUROS !<br>
+
+
     </p>
     <form action="/" method="get">
         <input type="submit" value="Try again"/>
@@ -37,16 +45,18 @@
     {%endif%}
 
     {%if USERPRICE != -20 %}
-    <h2>Previous attempts :</h2>
+        <h2>Previous attempts :</h2>
     <ul>
     {%for currentvalue in ATTEMPT %}
         <p>{{currentvalue}}</p>
     {%endfor%}
     </ul>
 
-{%endif%}
+
 
 {%endif%}
+{%endif%}
+
 
 </body>
 </html>
